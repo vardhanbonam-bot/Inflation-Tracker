@@ -1,0 +1,6 @@
+{
+  "name": "Inflation Mirror",
+  "description": "A personalized student inflation and cost-of-living tracker to calculate your real personal inflation rate, compare benchmarks, simulate what-if price changes, and plan student savings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

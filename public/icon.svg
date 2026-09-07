@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="mirrorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="512" height="512" rx="110" fill="url(#bgGrad)" />
+
+  <!-- Glowing outer rim -->
+  <rect x="56" y="56" width="400" height="400" rx="90" fill="none" stroke="url(#mirrorGrad)" stroke-width="4" opacity="0.4" filter="url(#glow)" />
+  
+  <!-- Mirror frame -->
+  <rect x="72" y="72" width="368" height="368" rx="80" fill="url(#glassGrad)" stroke="url(#mirrorGrad)" stroke-width="6" />
+
+  <!-- Diagonal mirror reflection sheen -->
+  <path d="M 120 80 L 400 360 L 340 420 L 80 160 Z" fill="#ffffff" opacity="0.07" />
+
+  <!-- Central Mirror Icon: Two reflection lines and an upward trendline -->
+  <!-- Reference line (base inflation) -->
+  <path d="M 130 330 C 190 320, 260 300, 370 280" fill="none" stroke="#64748b" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 8" />
+  
+  <!-- Personal Mirror line (personal inflation rising) -->
+  <path d="M 130 310 C 200 290, 280 240, 370 170" fill="none" stroke="url(#mirrorGrad)" stroke-width="12" stroke-linecap="round" filter="url(#glow)" />
+  
+  <!-- Trend arrow and peak pulse -->
+  <circle cx="370" cy="170" r="14" fill="#2dd4bf" />
+  <circle cx="370" cy="170" r="24" fill="none" stroke="#2dd4bf" stroke-width="3" opacity="0.6" />
+
+  <!-- Mirror sparkle badge -->
+  <polygon points="256,120 266,145 290,155 266,165 256,190 246,165 222,155 246,145" fill="#f8fafc" opacity="0.9" />
+</svg>
