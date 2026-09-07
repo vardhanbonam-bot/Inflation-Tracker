@@ -22,8 +22,12 @@ export async function loginWithGoogle(): Promise<User | null> {
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return result.user;
-  } catch (error) {
-    console.error('Google Sign-in failed:', error);
+  } catch (error: any) {
+    if (error?.code === 'auth/popup-closed-by-user' || error?.code === 'auth/cancelled-popup-request') {
+      console.info('Sign-in popup closed by user');
+      return null;
+    }
+    console.warn('Google sign-in message:', error?.message || error);
     throw error;
   }
 }
@@ -32,9 +36,17 @@ export async function loginAnonymously(): Promise<User | null> {
   try {
     const result = await signInAnonymously(auth);
     return result.user;
-  } catch (error) {
-    console.error('Anonymous sign-in failed:', error);
-    throw error;
+  } catch (error: any) {
+    // If anonymous sign-in is not enabled in Firebase Console, handle cleanly without console error
+    if (
+      error?.code === 'auth/admin-restricted-operation' ||
+      error?.message?.includes('admin-restricted-operation')
+    ) {
+      console.info('Anonymous authentication is restricted or disabled on this project. Use Google Sign-in to sync.');
+      return null;
+    }
+    console.warn('Anonymous sign-in unavailable:', error?.message || error);
+    return null;
   }
 }
 

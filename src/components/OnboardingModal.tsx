@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, ArrowRight, Shield, Check, Info } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { StudentType, AccommodationType } from '../types';
+import { InflationMirrorLogo } from './InflationMirrorLogo';
 
 export const OnboardingModal: React.FC = () => {
   const { isOnboardingOpen, setIsOnboardingOpen, updateProfile, loadDemoData, categories, settings } = useApp();
@@ -62,10 +63,8 @@ export const OnboardingModal: React.FC = () => {
 
         {/* Header Badge */}
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400">
-              <Sparkles className="w-4 h-4" />
-            </div>
+          <div className="flex items-center gap-2.5">
+            <InflationMirrorLogo size="sm" interactive={false} />
             <div>
               <h2 className="text-sm font-extrabold text-white">Inflation Mirror</h2>
               <p className="text-[10px] text-teal-400 font-semibold tracking-wide uppercase">
@@ -87,10 +86,13 @@ export const OnboardingModal: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-4"
           >
-            <div>
+            <div className="text-center pt-1 pb-2">
+              <div className="flex justify-center mb-3">
+                <InflationMirrorLogo size="lg" />
+              </div>
               <h3 className="text-lg font-bold text-white">Welcome! Let’s personalize your mirror.</h3>
-              <p className="text-xs text-slate-400 mt-1">
-                General inflation doesn’t reflect what you buy. We tailor calculations to your real student living patterns.
+              <p className="text-xs text-slate-400 mt-1 max-w-xs mx-auto">
+                Official inflation rates don’t reflect what students actually buy. We calculate your true personalized inflation rate.
               </p>
             </div>
 

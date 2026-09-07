@@ -1,96 +1,47 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Inflation Mirror Firestore Schema",
-  "description": "Firestore database blueprint for Inflation Mirror personalized student cost-of-living and inflation tracker",
-  "collections": [
-    {
-      "name": "users",
-      "type": "collection",
-      "description": "Student profile, inflation preferences, and metadata",
-      "path": "users/{userId}",
-      "documentSchema": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "email": { "type": "string" },
-          "displayName": { "type": "string" },
-          "studentType": { "type": "string" },
-          "city": { "type": "string" },
-          "accommodation": { "type": "string" },
-          "referenceCpiRate": { "type": "number" },
-          "hasCompletedOnboarding": { "type": "boolean" },
-          "createdAt": { "type": "string" },
-          "updatedAt": { "type": "string" }
-        },
-        "required": ["id"]
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student profile, preferences, and inflation parameters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "studentType": { "type": "string" },
+        "city": { "type": "string" },
+        "accommodation": { "type": "string" },
+        "referenceCpiRate": { "type": "number" },
+        "hasCompletedOnboarding": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
       },
-      "rules": "request.auth != null && request.auth.uid == userId"
+      "required": ["id"]
     },
-    {
-      "name": "expenses",
-      "type": "subcollection",
-      "description": "Logged student expenses and item purchases",
-      "path": "users/{userId}/expenses/{expenseId}",
-      "documentSchema": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "amount": { "type": "number" },
-          "categoryId": { "type": "string" },
-          "categoryName": { "type": "string" },
-          "date": { "type": "string" },
-          "merchant": { "type": "string" },
-          "note": { "type": "string" },
-          "paymentMethod": { "type": "string" },
-          "isRecurring": { "type": "boolean" },
-          "userId": { "type": "string" },
-          "createdAt": { "type": "string" }
-        },
-        "required": ["id", "amount", "categoryId", "date"]
+    "Expense": {
+      "title": "Expense",
+      "description": "Logged student expense item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "amount": { "type": "number" },
+        "categoryId": { "type": "string" },
+        "subcategory": { "type": "string" },
+        "item": { "type": "string" },
+        "note": { "type": "string" },
+        "date": { "type": "string" }
       },
-      "rules": "request.auth != null && request.auth.uid == userId"
-    },
-    {
-      "name": "categories",
-      "type": "subcollection",
-      "description": "Category settings, weights, and allocated monthly budgets",
-      "path": "users/{userId}/categories/{categoryId}",
-      "documentSchema": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "icon": { "type": "string" },
-          "color": { "type": "string" },
-          "allocatedBudget": { "type": "number" },
-          "personalInflationRate": { "type": "number" },
-          "subcategories": { "type": "array", "items": { "type": "string" } }
-        },
-        "required": ["id", "name"]
-      },
-      "rules": "request.auth != null && request.auth.uid == userId"
-    },
-    {
-      "name": "priceHistory",
-      "type": "subcollection",
-      "description": "Tracked basket items with price evolution points",
-      "path": "users/{userId}/priceHistory/{itemId}",
-      "documentSchema": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "categoryId": { "type": "string" },
-          "itemName": { "type": "string" },
-          "unit": { "type": "string" },
-          "baselinePrice": { "type": "number" },
-          "currentPrice": { "type": "number" },
-          "changePercentage": { "type": "number" },
-          "lastUpdated": { "type": "string" },
-          "historicalPoints": { "type": "array" }
-        },
-        "required": ["id", "categoryId", "itemName"]
-      },
-      "rules": "request.auth != null && request.auth.uid == userId"
+      "required": ["id", "amount", "categoryId", "date"]
     }
-  ]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Student user profile and preferences document"
+    },
+    "/users/{userId}/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Student expense record collection"
+    }
+  }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Sparkles, Bell, Settings as SettingsIcon, CloudCheck, CloudOff, Flame } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { PWAInstallButton } from './PWAInstallButton';
+import { InflationMirrorLogo } from './InflationMirrorLogo';
 
 export const Header: React.FC = () => {
   const { 
@@ -19,12 +20,10 @@ export const Header: React.FC = () => {
       <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
         {/* Logo & Brand */}
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-500 via-sky-500 to-indigo-500 p-[1.5px] shadow-lg shadow-teal-500/20 shrink-0">
-            <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/20 to-transparent opacity-60" />
-              <span className="text-base select-none">🪞</span>
-            </div>
-          </div>
+          <InflationMirrorLogo 
+            size="md" 
+            onClick={() => setIsSettingsOpen(true)} 
+          />
 
           <div className="min-w-0">
             <div className="flex items-center gap-2">
@@ -52,8 +51,8 @@ export const Header: React.FC = () => {
               currentUser?.email 
                 ? `Firebase Firestore Synced (${currentUser.email})` 
                 : isFirestoreSynced 
-                  ? 'Firebase Firestore Connected (Anonymous session)' 
-                  : 'Firebase Offline Mode'
+                  ? 'Firebase Firestore Connected' 
+                  : 'Click to connect Firebase Cloud Sync'
             }
             className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-[11px] font-medium transition"
           >
@@ -65,13 +64,13 @@ export const Header: React.FC = () => {
                 </span>
                 <span className="text-teal-300 flex items-center gap-1 text-[10px]">
                   <Flame className="w-3 h-3 text-orange-400" />
-                  {currentUser?.displayName ? currentUser.displayName.split(' ')[0] : 'Cloud Active'}
+                  {currentUser?.displayName ? currentUser.displayName.split(' ')[0] : 'Cloud Synced'}
                 </span>
               </>
             ) : (
               <>
-                <CloudOff className="w-3 h-3 text-slate-400" />
-                <span className="text-slate-400 text-[10px]">Offline</span>
+                <Flame className="w-3 h-3 text-amber-400" />
+                <span className="text-slate-300 text-[10px]">Connect Cloud</span>
               </>
             )}
           </button>

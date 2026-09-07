@@ -254,14 +254,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           console.warn('Could not fetch remote profile:', e);
         }
       } else {
-        // Auto sign in anonymously for seamless cloud sync
-        try {
-          await fbLoginAnonymously();
-        } catch (err: any) {
-          console.warn('Anonymous login error:', err);
-          setIsAuthLoading(false);
-          setFirestoreSyncError(err?.message || 'Using offline mode');
-        }
+        // User is not signed in; operate smoothly in offline-first local mode
+        setCurrentUser(null);
+        setIsAuthLoading(false);
+        setIsFirestoreSynced(false);
+        setFirestoreSyncError(null);
       }
     });
     return () => unsubscribe();
@@ -537,8 +534,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setFirestoreSyncError(null);
       }
     } catch (err: any) {
-      console.error('Google Sign-in error:', err);
-      setFirestoreSyncError(err?.message || 'Login failed');
+      if (err?.code !== 'auth/popup-closed-by-user') {
+        console.warn('Google sign-in:', err?.message || err);
+        setFirestoreSyncError(err?.message || 'Login failed');
+      }
     } finally {
       setIsAuthLoading(false);
     }

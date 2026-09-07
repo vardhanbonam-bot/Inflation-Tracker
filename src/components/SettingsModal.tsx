@@ -21,6 +21,7 @@ import {
 import { useApp } from '../context/AppContext';
 import { SUPPORTED_CURRENCIES } from '../data/categories';
 import { StudentType, AccommodationType } from '../types';
+import { InflationMirrorLogo } from './InflationMirrorLogo';
 
 export const SettingsModal: React.FC = () => {
   const {
@@ -107,9 +108,12 @@ export const SettingsModal: React.FC = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <div>
-              <h3 className="text-base font-bold text-white">Settings & Profile</h3>
-              <p className="text-xs text-slate-400">Personalize student assumptions & demo data</p>
+            <div className="flex items-center gap-3">
+              <InflationMirrorLogo size="md" interactive={false} />
+              <div>
+                <h3 className="text-base font-bold text-white">Settings & Profile</h3>
+                <p className="text-xs text-slate-400">Personalize student assumptions & demo data</p>
+              </div>
             </div>
             <button
               onClick={() => setIsSettingsOpen(false)}
@@ -300,7 +304,7 @@ export const SettingsModal: React.FC = () => {
               </span>
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono-num font-semibold bg-teal-500/15 text-teal-300 border border-teal-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-                {isFirestoreSynced ? 'Live Connected' : 'Connecting'}
+                {isFirestoreSynced ? 'Live Synced' : 'Ready to Connect'}
               </span>
             </div>
 
@@ -323,7 +327,7 @@ export const SettingsModal: React.FC = () => {
                   </span>
                 ) : (
                   <span className="text-slate-400">
-                    Anonymous ({currentUser?.uid ? `${currentUser.uid.slice(0, 6)}...` : 'Active'})
+                    Local Device (Not signed in)
                   </span>
                 )}
               </div>
