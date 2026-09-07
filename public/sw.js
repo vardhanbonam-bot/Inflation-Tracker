@@ -1,9 +1,15 @@
-const CACHE_NAME = 'inflation-mirror-v1';
+const CACHE_NAME = 'inflation-mirror-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/icon.svg'
+  '/icon.svg',
+  '/pwa-192x192.png',
+  '/pwa-512x512.png',
+  '/pwa-maskable-512x512.png',
+  '/apple-touch-icon.png',
+  '/cover-logo.svg',
+  '/cover-logo.png'
 ];
 
 self.addEventListener('install', (event) => {

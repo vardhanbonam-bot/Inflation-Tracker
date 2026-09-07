@@ -389,6 +389,49 @@ export const SettingsModal: React.FC = () => {
             </div>
           </div>
 
+          {/* Official App Cover & Brand Identity Assets */}
+          <div className="mt-5 p-3.5 bg-slate-950/80 rounded-xl border border-slate-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-xs text-slate-200 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+                App Cover Logo & PWA Assets
+              </span>
+              <span className="text-[10px] text-teal-400 font-mono font-medium">512×512 & 1200×630</span>
+            </div>
+
+            <div className="rounded-lg overflow-hidden border border-slate-800 relative group">
+              <img
+                src="/cover-logo.svg"
+                alt="Inflation Mirror Official Cover Logo"
+                className="w-full h-auto object-cover block"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/cover-logo.png';
+                }}
+              />
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] pt-1 border-t border-slate-800/80">
+              <span className="text-slate-400">Used as download cover, splash screen, & homescreen icon</span>
+              <div className="flex gap-2">
+                <a
+                  href="/cover-logo.png"
+                  download="inflation-mirror-cover.png"
+                  className="text-teal-400 hover:text-teal-300 transition underline underline-offset-2"
+                >
+                  Download Cover
+                </a>
+                <span className="text-slate-600">•</span>
+                <a
+                  href="/pwa-512x512.png"
+                  download="inflation-mirror-icon.png"
+                  className="text-teal-400 hover:text-teal-300 transition underline underline-offset-2"
+                >
+                  App Icon
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Future Expansion Roadmap Note (Section 9) */}
           <div className="mt-5 p-3.5 bg-slate-950/80 rounded-xl border border-slate-800 text-[11px] text-slate-400 space-y-1.5">
             <span className="font-bold text-slate-300 flex items-center gap-1.5">

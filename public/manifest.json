@@ -1,7 +1,7 @@
 {
   "id": "/",
   "name": "Inflation Mirror",
-  "short_name": "InfMirror",
+  "short_name": "InflationMirror",
   "description": "Personalized student inflation, basket weights, and cost-of-living planner.",
   "start_url": "/",
   "scope": "/",
@@ -9,6 +9,7 @@
   "background_color": "#090d16",
   "theme_color": "#090d16",
   "orientation": "portrait-primary",
+  "categories": ["finance", "productivity", "education"],
   "icons": [
     {
       "src": "/pwa-192x192.png",
@@ -23,7 +24,7 @@
       "purpose": "any"
     },
     {
-      "src": "/pwa-512x512.png",
+      "src": "/pwa-maskable-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -33,6 +34,22 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/cover-logo.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Inflation Mirror — Personalized Student Inflation Tracker"
+    },
+    {
+      "src": "/cover-logo.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Inflation Mirror Mobile Cover"
     }
   ]
 }

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="coverBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#080e1a" />
+      <stop offset="100%" stop-color="#051722" />
+    </linearGradient>
+
+    <linearGradient id="prismBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="45%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+
+    <linearGradient id="laserBeam" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="65%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softAura" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="url(#coverBg)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="280" cy="315" r="260" fill="#2dd4bf" opacity="0.15" filter="url(#softAura)" />
+  <circle cx="950" cy="180" r="220" fill="#38bdf8" opacity="0.1" filter="url(#softAura)" />
+  <circle cx="600" cy="520" r="200" fill="#818cf8" opacity="0.08" filter="url(#softAura)" />
+
+  <!-- Subtle Financial Coordinate Grid Pattern -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1.5">
+    <line x1="0" y1="105" x2="1200" y2="105" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="315" x2="1200" y2="315" />
+    <line x1="0" y1="420" x2="1200" y2="420" />
+    <line x1="0" y1="525" x2="1200" y2="525" />
+    <line x1="200" y1="0" x2="200" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="600" y1="0" x2="600" y2="630" />
+    <line x1="800" y1="0" x2="800" y2="630" />
+    <line x1="1000" y1="0" x2="1000" y2="630" />
+  </g>
+
+  <!-- LEFT: THE 3D INFLATION MIRROR HERO EMBLEM -->
+  <g transform="translate(100, 125)">
+    <!-- Outer Glow Rim -->
+    <rect x="-6" y="-6" width="392" height="392" rx="86" fill="none" stroke="url(#prismBezel)" stroke-width="2" opacity="0.5" />
+
+    <!-- Mirror Squircle Outer Bevel -->
+    <rect x="0" y="0" width="380" height="380" rx="80" fill="#030712" />
+    <rect x="0" y="0" width="380" height="380" rx="80" fill="none" stroke="url(#prismBezel)" stroke-width="5" />
+
+    <!-- Inner Chamber -->
+    <rect x="16" y="16" width="348" height="348" rx="66" fill="#050a14" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+
+    <!-- Internal Graph Matrix Lines -->
+    <g opacity="0.08" stroke="#ffffff" stroke-width="1.5">
+      <line x1="40" y1="120" x2="340" y2="120" />
+      <line x1="40" y1="190" x2="340" y2="190" />
+      <line x1="40" y1="260" x2="340" y2="260" />
+      <line x1="120" y1="40" x2="120" y2="340" />
+      <line x1="190" y1="40" x2="190" y2="340" />
+      <line x1="260" y1="40" x2="260" y2="340" />
+    </g>
+
+    <!-- Macro Benchmark Line (Grey Dashed) -->
+    <path d="M 50 290 Q 170 270 330 220" fill="none" stroke="#475569" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 8" opacity="0.75" />
+
+    <!-- Personal Student Inflation Trend Laser (Glowing) -->
+    <path d="M 50 280 Q 160 230 320 100" fill="none" stroke="url(#laserBeam)" stroke-width="16" stroke-linecap="round" filter="url(#laserGlow)" />
+
+    <!-- Apex Pulse Node -->
+    <circle cx="320" cy="100" r="26" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.5" />
+    <circle cx="320" cy="100" r="14" fill="#2dd4bf" filter="url(#laserGlow)" />
+    <circle cx="320" cy="100" r="6" fill="#ffffff" />
+
+    <!-- Diagonal Glass Sheen Reflection -->
+    <rect x="16" y="16" width="348" height="348" rx="66" fill="url(#sheen)" />
+
+    <!-- Top-Right Prismatic Diamond Star Sparkle -->
+    <g transform="translate(300, 45)">
+      <polygon points="18,0 22,14 36,18 22,22 18,36 14,22 0,18 14,14" fill="#ffffff" filter="url(#laserGlow)" />
+      <circle cx="18" cy="18" r="3" fill="#38bdf8" />
+    </g>
+  </g>
+
+  <!-- RIGHT: TYPOGRAPHY, BRAND & COVER COPY -->
+  <g transform="translate(560, 150)">
+    <!-- Small Category Eyebrow Pill -->
+    <g>
+      <rect x="0" y="0" width="220" height="34" rx="17" fill="rgba(45, 212, 191, 0.12)" stroke="rgba(45, 212, 191, 0.35)" stroke-width="1" />
+      <circle cx="18" cy="17" r="4" fill="#2dd4bf" />
+      <text x="32" y="22" fill="#2dd4bf" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">STUDENT FINANCE PWA</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="105" fill="url(#textGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="56" font-weight="900" letter-spacing="-1">Inflation Mirror</text>
+
+    <!-- Tagline -->
+    <text x="0" y="152" fill="url(#accentGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="0.5">Track. Understand. Plan.</text>
+
+    <!-- Description Paragraph -->
+    <text x="0" y="200" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400">
+      <tspan x="0" dy="0">Your personalized cost-of-living and student inflation tracker.</tspan>
+      <tspan x="0" dy="26">Calculate your real inflation rate, benchmark price pressures,</tspan>
+      <tspan x="0" dy="26">and forecast what-if scenarios with precision.</tspan>
+    </text>
+
+    <!-- Three Value Highlights Badges -->
+    <g transform="translate(0, 295)">
+      <!-- Badge 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="168" height="42" rx="12" fill="#0b1322" stroke="#1e293b" stroke-width="1.5" />
+        <text x="20" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">📊 Personal CPI</text>
+      </g>
+
+      <!-- Badge 2 -->
+      <g transform="translate(180, 0)">
+        <rect x="0" y="0" width="180" height="42" rx="12" fill="#0b1322" stroke="#1e293b" stroke-width="1.5" />
+        <text x="20" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">⚡ What-If Simulator</text>
+      </g>
+
+      <!-- Badge 3 -->
+      <g transform="translate(372, 0)">
+        <rect x="0" y="0" width="186" height="42" rx="12" fill="#0b1322" stroke="#1e293b" stroke-width="1.5" />
+        <text x="20" y="26" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">🔥 Cloud Synced PWA</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Border Line -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#prismBezel)" />
+</svg>
